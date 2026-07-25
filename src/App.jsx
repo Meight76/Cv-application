@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Resume from './components/resume/Resume.jsx';
+import Editor from './components/editor/Editor.jsx';
 
 export default function App() {
   const [contact, setContact] = useState({
@@ -17,7 +18,7 @@ export default function App() {
   const [projects, setProjects] = useState([]);
   const [name, setName] = useState('');
 
-  const resume = {
+  const resumeInfo = {
     contact,
     certifications,
     languages,
@@ -29,9 +30,22 @@ export default function App() {
     name,
   };
 
+  const resumeSet = {
+    setCertification,
+    setContact,
+    setEducation,
+    setExperience,
+    setKeySkills,
+    setLanguages,
+    setCareerObjective,
+    setProjects,
+    setName,
+  }
+
   return (
     <>
-      <Resume resume={resume} />
+      <Resume resume={resumeInfo} />
+      <Editor resumeInfo={resumeInfo} resumeSet={resumeSet} />
     </>
   );
 }
