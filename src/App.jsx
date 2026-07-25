@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Resume from './components/Resume.jsx';
+import Resume from './components/resume/Resume.jsx';
 
 export default function App() {
   const [contact, setContact] = useState({
@@ -11,7 +11,7 @@ export default function App() {
   const [certifications, setCertification] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [careerObjective, setCareerObjective] = useState('');
-  const [keySkills, setKeySkills] = useState([]);
+  const [keySkills, setKeySkills] = useState({ technical: [], softSkills: [] });
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
   const [projects, setProjects] = useState([]);
