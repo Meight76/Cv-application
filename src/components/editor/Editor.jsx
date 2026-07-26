@@ -2,9 +2,11 @@ import EditorSection from './Editor-section.jsx';
 import RepeatableInputSection from './Repeatable-input.jsx';
 import InputSetup from './Input-setup.jsx';
 import ContactInputs from './Contact-inputs.jsx';
-import CertificationInput from './Certification-inputs.jsx';
-import LanguagesInput from './Languages-input.jsx';
+import CertificationInputs from './Certification-inputs.jsx';
+import LanguagesInputs from './Languages-input.jsx';
 import ExperienceInputs from './Experience-inputs.jsx';
+import EducationInputs from './Education-inputs.jsx';
+import ProjectInputs from './Project-inputs.jsx';
 
 export default function Editor({ resumeInfo, resumeSet }) {
   const {
@@ -38,7 +40,7 @@ export default function Editor({ resumeInfo, resumeSet }) {
       </header>
       <EditorSection title="Name">
         <InputSetup
-          value={name}
+          value={name || ''}
           id="name"
           placeholder="John"
           onChange={(e) => setName(e.target.value)}
@@ -50,7 +52,7 @@ export default function Editor({ resumeInfo, resumeSet }) {
       <RepeatableInputSection
         title="Certifications"
         repeat={certifications.length === 0 ? 1 : certifications.length}
-        render={CertificationInput}
+        render={CertificationInputs}
         value={certifications}
         setFunction={setCertifications}
         fieldName="certification"
@@ -61,7 +63,7 @@ export default function Editor({ resumeInfo, resumeSet }) {
         value={languages}
         setFunction={setLanguages}
         fieldName="languages"
-        render={LanguagesInput}
+        render={LanguagesInputs}
       />
       <EditorSection title="Career Objective">
         <label htmlFor="career-objective">Career Objective</label>
@@ -70,14 +72,13 @@ export default function Editor({ resumeInfo, resumeSet }) {
           id="career-objective"
           placeholder="i want to be a programmer"
           onChange={(e) => setCareerObjective(e.target.value)}
-        >
-          {careerObjective}
-        </textarea>
+          value={careerObjective}
+        ></textarea>
       </EditorSection>
       <EditorSection title="Key Skills">
         <InputSetup
           id="technical-skills"
-          value={keySkills.techSkills}
+          value={keySkills.techSkills || ''}
           placeholder="ms office, programming languages, tools"
           onChange={(e) =>
             setKeySkills({ ...keySkills, techSkills: e.target.value })
@@ -85,7 +86,7 @@ export default function Editor({ resumeInfo, resumeSet }) {
         />
         <InputSetup
           id="soft-skills"
-          value={keySkills.softSkills}
+          value={keySkills.softSkills || ''}
           placeholder="communication, team work"
           onChange={(e) =>
             setKeySkills({ ...keySkills, softSkills: e.target.value })
@@ -93,15 +94,29 @@ export default function Editor({ resumeInfo, resumeSet }) {
         />
       </EditorSection>
       <RepeatableInputSection
-        title='Experience'
+        title="Experience"
         repeat={experience.length}
-        fieldName='Experience'
+        fieldName="Experience"
         setFunction={setExperience}
         value={experience}
         render={ExperienceInputs}
-        />
-      <EditorSection title="Education"></EditorSection>
-      <EditorSection title="Project / Internship"></EditorSection>
+      />
+      <RepeatableInputSection
+        title="Education"
+        repeat={education.length}
+        fieldName="education"
+        setFunction={setEducation}
+        value={education}
+        render={EducationInputs}
+      />
+      <RepeatableInputSection
+        title="Projects"
+        repeat={projects.length}
+        fieldName="Projects"
+        setFunction={setProjects}
+        value={projects}
+        render={ProjectInputs}
+      />
     </section>
   );
 }

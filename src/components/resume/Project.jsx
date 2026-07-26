@@ -1,14 +1,15 @@
 export default function Project({ projects }) {
   const projectsUi = projects.map((proj, index) => {
-    const { type, title, companyName, description, tech } = proj;
+    const { title, companyName, description, tech } = proj;
     return (
       <article
         key={`${title?.slice(0, 20)}-${companyName?.slice(0, 20)}-${index}`}
       >
         <h3>
-          {(type || 'Project/Internship') +
-            (title || 'title') +
-            (companyName || 'Company/Institute Name')}
+          {
+            (title || 'title') + '-' +
+            (companyName || 'Company/Institute Name')
+            }
         </h3>
         <p className="project-description">
           {description || 'Brief description'}

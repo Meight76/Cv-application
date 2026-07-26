@@ -16,10 +16,32 @@ export default function App() {
     { title: null, level: null, id: crypto.randomUUID() },
   ]);
   const [careerObjective, setCareerObjective] = useState('');
-  const [keySkills, setKeySkills] = useState({ techSkills: [], softSkills: [] });
-  const [experience, setExperience] = useState([{jobTitle: null, companyName: null, initialDate: null, finalDate: null, achievements: [''], id: crypto.randomUUID()}]);
-  const [education, setEducation] = useState([{title: null, institute: null, year: null, id: crypto.randomUUID()}]);
-  const [projects, setProjects] = useState([{type: null, title: null, companyName: null, description: null, tech: null, id: crypto.randomUUID()}]);
+  const [keySkills, setKeySkills] = useState({
+    techSkills: [],
+    softSkills: [],
+  });
+  const [experience, setExperience] = useState([
+    {
+      jobTitle: null,
+      companyName: null,
+      initialDate: null,
+      finalDate: null,
+      achievements: [''],
+      id: crypto.randomUUID(),
+    },
+  ]);
+  const [education, setEducation] = useState([
+    { title: null, institute: null, year: null, id: crypto.randomUUID() },
+  ]);
+  const [projects, setProjects] = useState([
+    {
+      title: null,
+      companyName: null,
+      description: null,
+      tech: null,
+      id: crypto.randomUUID(),
+    },
+  ]);
   const [name, setName] = useState('');
 
   const resumeInfo = {

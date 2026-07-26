@@ -5,15 +5,15 @@ export default function RepeatableInputSection({
   fieldName = '',
   setFunction,
   value,
-  showTitle=true,
-  isObj=true
+  showTitle = true,
+  isObj = true,
 }) {
   function handleClickMore() {
     const copy = [...value];
-    if (isObj){
+    if (isObj) {
       copy.push({ id: crypto.randomUUID() });
     } else {
-      copy.push('')
+      copy.push('');
     }
     setFunction(copy);
   }
@@ -31,9 +31,10 @@ export default function RepeatableInputSection({
       <button className="less-field" onClick={handleClickLess}>
         Less {fieldName}
       </button>
-      {Array.from({ length: repeat }, (_, index) =>
-        render(value, setFunction)(index)
-      )}
+      {render &&
+        Array.from({ length: repeat }, (_, index) =>
+          render(value, setFunction)(index)
+        )}
     </section>
   );
 }
