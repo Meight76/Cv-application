@@ -14,7 +14,7 @@ export default function Resume({ resume }) {
     contact,
     // array containg objects with name, institute, year properties
     certifications,
-    // array containg objects with name and level properties
+    // array containg objects with name, level and id properties
     languages,
     // just a string
     careerObjective,
@@ -33,7 +33,7 @@ export default function Resume({ resume }) {
     <section className="resume-preview">
       <header className="resume-header">
         <h1>{name || '[YOUR FULL NAME]'}</h1>
-        </header>
+      </header>
       <section className="resume-sidebar">
         <UserIcon />
         <ResumeSection title="contact">
@@ -56,7 +56,7 @@ export default function Resume({ resume }) {
           <KeySkills keySkills={keySkills} />
         </ResumeSection>
         <ResumeSection title="Experience">
-          <Experience experience={experience}/>
+          <Experience experience={experience} />
         </ResumeSection>
         <ResumeSection title="Education">
           <Education education={education} />

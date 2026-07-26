@@ -3,8 +3,8 @@ import { Fragment } from 'react';
 export default function Certifications({ certifications }) {
   const certUi = certifications.map((cert) => {
     return (
-      <Fragment key={Crypto.randomUUID()}>
-        <h3>{cert?.name || '[Certification Name]'}</h3>
+      <Fragment key={crypto.randomUUID()}>
+        <h3>{cert?.title || '[Certification Name]'}</h3>
         <ul>
           <li>
             <span>{cert?.institute || '[Institute]'}</span>

@@ -2,7 +2,7 @@ export default function Language({ languages }) {
   const languagesUi = languages.map((lang) => {
     return (
       <li>
-        {lang.name} {lang.level}
+        {lang.title} {lang.level}
       </li>
     );
   });

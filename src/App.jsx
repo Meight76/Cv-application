@@ -9,8 +9,8 @@ export default function App() {
     location: null,
     linkedin: null,
   });
-  const [certifications, setCertification] = useState([]);
-  const [languages, setLanguages] = useState([]);
+  const [certifications, setCertifications] = useState([{title: null, institute: null, year: null, id: crypto.randomUUID()}]);
+  const [languages, setLanguages] = useState([{title: null, level: null, id: crypto.randomUUID()}]);
   const [careerObjective, setCareerObjective] = useState('');
   const [keySkills, setKeySkills] = useState({ technical: [], softSkills: [] });
   const [experience, setExperience] = useState([]);
@@ -31,7 +31,7 @@ export default function App() {
   };
 
   const resumeSet = {
-    setCertification,
+    setCertifications,
     setContact,
     setEducation,
     setExperience,
@@ -40,7 +40,7 @@ export default function App() {
     setCareerObjective,
     setProjects,
     setName,
-  }
+  };
 
   return (
     <>
