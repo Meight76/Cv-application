@@ -1,8 +1,20 @@
-
-export default function RepeatableInputSection({title, render, repeat = 1, fieldName='', setFunction, value}) {
+export default function RepeatableInputSection({
+  title,
+  render,
+  repeat = 1,
+  fieldName = '',
+  setFunction,
+  value,
+  showTitle=true,
+  isObj=true
+}) {
   function handleClickMore() {
     const copy = [...value];
-    copy.push({id: crypto.randomUUID()});
+    if (isObj){
+      copy.push({ id: crypto.randomUUID() });
+    } else {
+      copy.push('')
+    }
     setFunction(copy);
   }
 
@@ -12,10 +24,16 @@ export default function RepeatableInputSection({title, render, repeat = 1, field
   }
   return (
     <section className="editor-section repeatable">
-      <h3 className="editor-section-title">{title}</h3>
-      <button className='more-field' onClick={handleClickMore}>More {fieldName}</button>
-      <button className='less-field' onClick={handleClickLess}>Less {fieldName}</button>
-      {Array.from({ length: repeat }, (_, index) => render(value, setFunction)(index))}
+      {showTitle && <h3 className="editor-section-title">{title}</h3>}
+      <button className="more-field" onClick={handleClickMore}>
+        More {fieldName}
+      </button>
+      <button className="less-field" onClick={handleClickLess}>
+        Less {fieldName}
+      </button>
+      {Array.from({ length: repeat }, (_, index) =>
+        render(value, setFunction)(index)
+      )}
     </section>
   );
 }

@@ -1,17 +1,15 @@
 export default function KeySkills({ keySkills }) {
-  const { technical, softSkills } = keySkills;
-  const techInfo =
-    technical.length === 0 ? ['[Some Technical Skills]'] : technical;
-  const softInfo = technical.length === 0 ? ['[Some Soft Skill]'] : softSkills;
+  const { techSkills, softSkills } = keySkills;
+
   return (
     <ul>
       <li>
         <span>Technical:</span>
-        <span>{techInfo.join(' ')}</span>
+        <span>{techSkills}</span>
       </li>
       <li>
         <span>SoftSkills:</span>
-        <span>{softInfo.join(' ')}</span>
+        <span>{softSkills}</span>
       </li>
     </ul>
   );

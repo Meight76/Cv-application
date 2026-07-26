@@ -1,8 +1,8 @@
 export default function Education({ education }) {
   const educationUi = education.map((edu, index) => {
     return (
-      <li key={`${edu.course.slice(0, 20)}-${edu.year}-${index}`}>
-        {edu.course + ' | ' + edu.institute + ' | ' + edu.year}
+      <li key={`${edu?.title?.slice(0, 20)}-${edu.year}-${index}`}>
+        {edu.title + ' | ' + edu.institute + ' | ' + edu.year}
       </li>
     );
   });

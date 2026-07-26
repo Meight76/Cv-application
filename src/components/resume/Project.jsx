@@ -3,7 +3,7 @@ export default function Project({ projects }) {
     const { type, title, companyName, description, tech } = proj;
     return (
       <article
-        key={`${title.slice(0, 20)}-${companyName.slice(0, 20)}-${index}`}
+        key={`${title?.slice(0, 20)}-${companyName?.slice(0, 20)}-${index}`}
       >
         <h3>
           {(type || 'Project/Internship') +
