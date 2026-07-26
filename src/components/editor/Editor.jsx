@@ -62,7 +62,16 @@ export default function Editor({ resumeInfo, resumeSet }) {
         fieldName='languages'
         render={LanguagesInput}
         />
-      <EditorSection title="Career Objective"></EditorSection>
+      <EditorSection title="Career Objective">
+        <label htmlFor="career-objective">Career Objective</label>
+        <textarea
+          name="career-objective"
+          id="career-objective"
+          placeholder='i want to be a programmer'
+          onChange={e => setCareerObjective(e.target.value)}>
+            {careerObjective}
+        </textarea>
+      </EditorSection>
       <EditorSection title="Key Skills"></EditorSection>
       <EditorSection title="Experience"></EditorSection>
       <EditorSection title="Education"></EditorSection>

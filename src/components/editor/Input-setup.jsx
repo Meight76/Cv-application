@@ -14,6 +14,7 @@ export default function InputSetup({
         value={value}
         onChange={onChange}
         id={id}
+        name={id}
         placeholder={placeholder}
       />
     </>
