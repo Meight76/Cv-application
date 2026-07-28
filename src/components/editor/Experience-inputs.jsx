@@ -60,7 +60,7 @@ export default function ExperienceInputs(experiences, setExperiences) {
         />
         <RepeatableInputSection
           title=""
-          repeat={xpObj.achievements.length}
+          repeat={xpObj?.achievements?.length || 0}
           fieldName="achievements"
           setFunction={(newVal) => changeAchievement(newVal, index)}
           value={xpObj.achievements}

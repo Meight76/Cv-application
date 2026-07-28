@@ -1,5 +1,4 @@
 import ResumeSection from './Resume-section.jsx';
-import UserIcon from '../../icons/User-cicle.jsx';
 import Contact from './Contact.jsx';
 import Certifications from './Certifications.jsx';
 import Language from './Languages.jsx';
@@ -35,7 +34,6 @@ export default function Resume({ resume }) {
         <h1>{name || '[YOUR FULL NAME]'}</h1>
       </header>
       <section className="resume-sidebar">
-        <UserIcon />
         <ResumeSection title="contact">
           <Contact contactInfo={contact} />
         </ResumeSection>

@@ -70,8 +70,12 @@ export default function App() {
 
   return (
     <>
-      <Resume resume={resumeInfo} />
-      <Editor resumeInfo={resumeInfo} resumeSet={resumeSet} />
+      <header className="header">Resume Editor</header>
+      <main>
+        <Resume resume={resumeInfo} />
+        <Editor resumeInfo={resumeInfo} resumeSet={resumeSet} />
+      </main>
+      <footer className="footer"></footer>
     </>
   );
 }

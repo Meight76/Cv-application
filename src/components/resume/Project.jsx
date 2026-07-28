@@ -6,10 +6,7 @@ export default function Project({ projects }) {
         key={`${title?.slice(0, 20)}-${companyName?.slice(0, 20)}-${index}`}
       >
         <h3>
-          {
-            (title || 'title') + '-' +
-            (companyName || 'Company/Institute Name')
-            }
+          {(title || 'title') + '-' + (companyName || 'Company/Institute Name')}
         </h3>
         <p className="project-description">
           {description || 'Brief description'}

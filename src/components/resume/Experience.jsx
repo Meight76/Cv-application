@@ -9,14 +9,15 @@ export default function Experience({ experience }) {
           {initialDate || '[Month, Year]'}-{finalDate || 'Month, Year'}
         </h3>
         <ul className="achievements-list">
-          {achievements.map((ach, i) => {
-            if (ach === '') return;
-            return (
-              <li key={`${ach.slice(0, 20)}-${companyName}-${i}`}>
-                <p className="achiement-para">{ach + ' ' + '#' + i};</p>
-              </li>
-            );
-          })}
+          {achievements &&
+            achievements.map((ach, i) => {
+              if (ach === '') return;
+              return (
+                <li key={`${ach.slice(0, 20)}-${companyName}-${i}`}>
+                  <p className="achiement-para">{ach + ' ' + '#' + i};</p>
+                </li>
+              );
+            })}
         </ul>
       </Fragment>
     );
