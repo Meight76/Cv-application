@@ -6,7 +6,7 @@ export default function Certifications({ certifications }) {
       <Fragment key={crypto.randomUUID()}>
         <h3>{cert?.title || '[Certification Name]'}</h3>
         <ul>
-          <li>
+          <li className='cert-description'>
             <span>{cert?.institute || '[Institute]'}</span>
             <span>{cert?.year || '[Year]'}</span>
           </li>

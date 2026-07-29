@@ -11,23 +11,26 @@
   --body-bg: #f0f0f0;
   --header-color: crimson;
   --page-header-bg: #fff;
-  --resume-section-h2-size: 0.9rem;
-  --resume-section-h3-size: 0.6rem;
+  --contact-span-size: 0.6rem;
+  --resume-section-h2-size: 1rem;
+  --resume-section-h3-size: 0.7rem;
   --resume-section-space: 2rem;
-  --resume-para-size: 0.5rem;
-  --resume-span-size: 0.5rem;
+  --resume-para-size: 0.7rem;
+  --resume-span-size: 0.7rem;
   --resume-sidebar-bg: oklch(0.87 0 0);
-  --strong-size: 0.5rem;
-  --svg-size: 16px;
+  --strong-size: 0.6rem;
+  --svg-size: 20px;
   --user-icon-size: 100px;
-  --li-decoration-size: 3px;
-  --li-text-node-size: 0.5rem;
+  --li-decoration-size: 4px;
+  --li-text-node-size: 0.7rem;
   --list-padding: 7px;
   --list-spacing: 5px;
 }
 
 body {
   min-height: 100svh;
+  max-width: 100vw;
+  overflow-x: auto;
   background: var(--body-bg);
   display: flex;
 }
@@ -47,13 +50,22 @@ body {
 main {
   display: grid;
   grid-template-columns: 1fr;
+  overflow-x: auto;
+}
+
+.preview-wrapper {
+  overflow-x: auto;
+  max-width: 100vw;
 }
 
 .resume-preview {
+  overflow-x: auto;
+  min-width: max-content;
+  max-width: 400px;
   box-shadow: 0 0 10px oklch(0 0 0 / 0.2);
   margin: 16px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: minmax(170, 30%) 1fr;
 
   .resume-section {
     margin-bottom: var(--resume-section-space);
@@ -95,7 +107,7 @@ main {
   header {
     grid-column: span 2;
     background: var(--header-bg);
-    padding: 3vh 0 3vh 0;
+    padding: 4vh 0 4vh 0;
     display: flex;
     justify-content: center;
 
@@ -103,6 +115,10 @@ main {
       font-size: 1.1rem;
       color: #fff;
     }
+  }
+  .project-tech {
+    /* font-size: calc(var(--resume-para-size) - 0.1rem); */
+    margin-top: 10px;
   }
 }
 
@@ -121,14 +137,12 @@ main {
 }
 
 .contact-items {
-  --resume-span-size: .4rem;
-  --strong-size: .5rem;
-  --svg-size: 12px;
   padding: 0;
   list-style: none;
   display: grid;
   grid-template-columns: auto auto auto;
   row-gap: 5px;
+  column-gap: 6px;
 
   li {
     grid-column: span 3;
@@ -148,6 +162,7 @@ main {
 
     span {
       font-weight: 600;
+      font-size: var(--contact-span-size);
     }
 
     svg {
@@ -187,16 +202,29 @@ li:not(.email, .phone, .linkedin, .location, :empty)::before {
 }
 
 .resume-main {
-  padding: 20px 10px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
-
 
 strong {
   color: var(--header-bg);
   font-size: var(--strong-size);
 }
 
-
 ul:not(.contact-items) {
   padding-left: var(--list-padding);
+}
+
+.skill-strong {
+  margin-right: 5px;
+}
+
+.achievement-para {
+  display: flex;
+  gap: 10px;
+}
+
+.language-list,
+.cert-description {
+  display: flex;
+  gap: 10px;
 }

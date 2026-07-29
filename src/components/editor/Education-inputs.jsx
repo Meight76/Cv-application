@@ -33,6 +33,7 @@ export default function EducationInputs(education, setEducation) {
         <InputSetup
           id={`year-${eduObj.id}`}
           label="year"
+          type='number'
           value={eduObj.year || ''}
           placeholder="2014 (example)"
           onChange={(e) => handleChange(e, 'year', index)}

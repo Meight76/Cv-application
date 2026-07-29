@@ -38,6 +38,7 @@ export default function CertificationInput(certifications, setCertifications) {
           id={`year-${certObj.id}`}
           label="year"
           value={certObj.year || ''}
+          type='number'
           onChange={(e) => handleChange(e, index, 'year')}
           placeholder="2014 (example)"
         />

@@ -4,11 +4,11 @@ export default function KeySkills({ keySkills }) {
   return (
     <ul>
       <li>
-        <strong>Technical:</strong>
+        <strong className="skill-strong">Technical:</strong>
         <span>{techSkills}</span>
       </li>
       <li>
-        <strong>SoftSkills:</strong>
+        <strong className="skill-strong">SoftSkills:</strong>
         <span>{softSkills}</span>
       </li>
     </ul>

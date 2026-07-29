@@ -14,7 +14,10 @@ export default function Experience({ experience }) {
               if (ach === '') return;
               return (
                 <li key={`${ach.slice(0, 20)}-${companyName}-${i}`}>
-                  <p className="achiement-para">{ach + ' ' + '#' + i};</p>
+                  <p className="achievement-para">
+                    <span>{ach}</span>
+                    <span>{'#' + i}</span>
+                  </p>
                 </li>
               );
             })}
@@ -32,7 +35,7 @@ export default function Experience({ experience }) {
       <ul className="achievement-list">
         <li>
           <p className="achievement-para">
-            Key responsability or achievement #1
+            <span>Key responsability or achievement</span> <span>#1</span>
           </p>
         </li>
       </ul>

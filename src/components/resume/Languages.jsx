@@ -1,8 +1,16 @@
 export default function Language({ languages }) {
   const languagesUi = languages.map((lang, index) => {
     return (
-      <li key={`${lang.title}-${lang.level}-${index}`} className='language-list'>
-        {(lang.title || lang.level) && <><span>{lang.title}</span><span>{lang.level}</span></>}
+      <li
+        key={`${lang.title}-${lang.level}-${index}`}
+        className="language-list"
+      >
+        {(lang.title || lang.level) && (
+          <>
+            <span>{lang.title}</span>
+            <span>({lang.level})</span>
+          </>
+        )}
       </li>
     );
   });

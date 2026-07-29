@@ -72,7 +72,9 @@ export default function App() {
     <>
       <header className="header">Resume Editor</header>
       <main>
+        <div className='preview-wrapper'>
         <Resume resume={resumeInfo} />
+        </div>
         <Editor resumeInfo={resumeInfo} resumeSet={resumeSet} />
       </main>
       <footer className="footer"></footer>
