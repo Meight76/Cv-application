@@ -75,7 +75,9 @@ export default function App() {
         <div className='preview-wrapper'>
         <Resume resume={resumeInfo} />
         </div>
+        <div className="editor-wrapper">
         <Editor resumeInfo={resumeInfo} resumeSet={resumeSet} />
+        </div>
       </main>
       <footer className="footer"></footer>
     </>

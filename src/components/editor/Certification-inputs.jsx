@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import InputSetup from './Input-setup.jsx';
 
 export default function CertificationInput(certifications, setCertifications) {
@@ -19,13 +18,14 @@ export default function CertificationInput(certifications, setCertifications) {
     const certObj = certifications[index];
     if (!certObj) throw new Error('Certification not found');
     return (
-      <Fragment key={certObj.id}>
+      <div key={certObj.id} className='certification-input-section'>
         <InputSetup
           id={`title-${certObj.id}`}
           label="title"
           value={certObj.title || ''}
           onChange={(e) => handleChange(e, index, 'title')}
           placeholder="programming languages (example)"
+          inputClass='title-input'
         />
         <InputSetup
           id={`institute-${certObj.id}`}
@@ -33,6 +33,7 @@ export default function CertificationInput(certifications, setCertifications) {
           value={certObj.institute || ''}
           onChange={(e) => handleChange(e, index, 'institute')}
           placeholder="xyz universe (example)"
+          inputClass='inst-input'
         />
         <InputSetup
           id={`year-${certObj.id}`}
@@ -41,8 +42,9 @@ export default function CertificationInput(certifications, setCertifications) {
           type='number'
           onChange={(e) => handleChange(e, index, 'year')}
           placeholder="2014 (example)"
+          inputClass='year-input'
         />
-      </Fragment>
+      </div>
     );
   };
 }

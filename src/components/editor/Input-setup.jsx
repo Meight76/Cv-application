@@ -5,9 +5,10 @@ export default function InputSetup({
   onChange,
   type = 'text',
   placeholder = '',
+  inputClass=''
 }) {
   return (
-    <>
+    <div className={['input-setup', (label || id)].join(" ")}>
       <label htmlFor={id}>{label || id}</label>
       <input
         type={type}
@@ -16,7 +17,8 @@ export default function InputSetup({
         id={id}
         name={id}
         placeholder={placeholder}
+        className={inputClass}
       />
-    </>
+    </div>
   );
 }

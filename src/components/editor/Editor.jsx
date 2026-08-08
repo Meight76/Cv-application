@@ -34,11 +34,11 @@ export default function Editor({ resumeInfo, resumeSet }) {
   } = resumeSet;
 
   return (
-    <section className="editor-section">
+    <section className="editor">
       <header className="editor-header">
         <h2>Editor</h2>
       </header>
-      <EditorSection title="Name">
+      <EditorSection title="Name" sectionClass='name-input-section'>
         <InputSetup
           value={name || ''}
           id="name"
@@ -47,7 +47,7 @@ export default function Editor({ resumeInfo, resumeSet }) {
         />
       </EditorSection>
       <EditorSection title="Contact">
-        <ContactInputs contact={contact} setContact={setContact} />
+        <ContactInputs contact={contact} setContact={setContact} divClass='contact-input-section' />
       </EditorSection>
       <RepeatableInputSection
         title="Certifications"

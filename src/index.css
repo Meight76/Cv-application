@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+*:focus,
+*:focus-visible {
+  outline-color: gold;
+}
+
 :root {
   --header-bg: #1f2633;
   --body-bg: #f0f0f0;
@@ -25,6 +30,14 @@
   --li-text-node-size: 0.7rem;
   --list-padding: 7px;
   --list-spacing: 5px;
+  --editor-h3-size: 1.2rem;
+  --btns-field-font-size: .6rem;
+  --btn-more-field-font-color: #000;
+  --btn-less-field-font-color: #fff;
+  --btn-more-field-bg: gold;
+  --btn-less-field-bg: var(--header-bg);
+  --h3-editor-section-color: oklch(from gold calc(l - .3) c h);
+  --editor-h3-weight: 600;
 }
 
 body {
@@ -33,6 +46,10 @@ body {
   overflow-x: auto;
   background: var(--body-bg);
   display: flex;
+}
+
+#root {
+  width: 100vw;
 }
 
 #root > header {
@@ -50,12 +67,19 @@ body {
 main {
   display: grid;
   grid-template-columns: 1fr;
+  row-gap: 10px;
   overflow-x: auto;
+  justify-items: center;
 }
 
 .preview-wrapper {
   overflow-x: auto;
   max-width: 100vw;
+}
+
+.editor-wrapper {
+  max-width: 100vw;
+  overflow-x: auto;
 }
 
 .resume-preview {
@@ -227,4 +251,165 @@ ul:not(.contact-items) {
 .cert-description {
   display: flex;
   gap: 10px;
+}
+
+.editor-section {
+  display: flex;
+  flex-direction: column;
+
+
+  h3 {
+    font-size: var(--editor-h3-size);
+    color: var(--h3-editor-section-color);
+    font-weight: var(--editor-h3-weight);
+    text-transform: uppercase;
+  }
+
+  .more-field,
+  .less-field {
+    border: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: var(--btns-field-font-size);
+    box-shadow: 0 0 7px oklch(0 0 0 /0.2);
+    border-radius: 8px;
+    padding: 5px 15px;
+    width: max-content;
+    transition: ease .2s all;
+  }
+
+  .more-field {
+    color: var(--btn-more-field-font-color);
+    background: var(--btn-more-field-bg);
+  }
+
+  .more-field:hover {
+    background-color: oklch(from var(--btn-more-field-bg) calc(l - 0.1) c h);
+  }
+
+  .more-field:active {
+    background-color: oklch(from var(--btn-more-field-bg) calc(l + 0.1) c h);
+  }
+
+  .less-field {
+    color: var(--btn-less-field-font-color);
+    background: var(--btn-less-field-bg);
+  }
+
+  .less-field:hover {
+    background-color: oklch(from var(--btn-less-field-bg) calc(l - 0.1) c h);
+  }
+
+  .less-field:active {
+    background-color: oklch(from var(--btn-less-field-bg) calc(l + 0.1) c h);
+  }
+
+  .editor-section-btn-div {
+    padding-right: 50px;
+    justify-content: end;
+    display: flex;
+    gap: 10px;
+  }
+
+  .contact-input-section {
+    display: grid;
+    padding: 6px;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+    'phone location'
+    'email linkedin';
+    column-gap: 20px;
+
+
+    .phone {
+      grid-area: phone;
+      max-width: 100px;
+    }
+    .email {
+      grid-area: email;
+    }
+    .location {
+      grid-area: location;
+      max-width: 100px;
+    }
+    .linkedin {
+      grid-area: linkedin;
+      max-width: 150px;
+    }
+  }
+
+  .certification-input-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    grid-template-areas:
+    'title year'
+    'institute institute';
+
+    .year {
+      grid-area: year;
+    }
+    .institute {
+      grid-area: institute;
+    }
+    .title {
+      grid-area: title;
+    }
+  }
+
+}
+
+.editor-section {
+  .input-setup {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: var(--header-bg);
+      font-weight: 700;
+    }
+  }
+  input,
+  textarea {
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid var(--header-bg);
+    margin-top: 5px;
+  }
+
+  input:focus::placeholder,
+  input:focus-visible::placeholder,
+  textarea:focus::placeholder,
+  textarea:focus-visible::placeholder {
+    color: oklch(from gold calc(l - .3) c h)
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--header-bg);
+  }
+
+}
+
+.editor {
+  margin: 10px;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px oklch(0 0 0 / 0.2);
+  width: max-content;
+
+  >header {
+    margin: 30px 0;
+  }
+  * {
+    color: var(--header-bg);
+  }
+  label {
+    margin-bottom: 5px;
+  }
+  input,
+  textarea,
+  h3 {
+    margin-bottom: 10px;
+  }
 }

@@ -1,13 +1,13 @@
 import InputSetup from './Input-setup.jsx';
 
-export default function ContactInputs({ contact, setContact }) {
+export default function ContactInputs({ contact, divClass, setContact }) {
   function changeContact(prop, newValue) {
     const newContact = { ...contact };
     newContact[prop] = newValue;
     setContact(newContact);
   }
   return (
-    <>
+    <div className={divClass}>
       <InputSetup
         id="phone"
         value={contact.phone || ''}
@@ -34,6 +34,6 @@ export default function ContactInputs({ contact, setContact }) {
         placeholder="username"
         onChange={(e) => changeContact('linkedin', e.target.value)}
       />
-    </>
+    </div>
   );
 }

@@ -25,12 +25,14 @@ export default function RepeatableInputSection({
   return (
     <section className="editor-section repeatable">
       {showTitle && <h3 className="editor-section-title">{title}</h3>}
+      <div className="editor-section-btn-div">
       <button className="more-field" onClick={handleClickMore}>
-        More {fieldName}
+        +
       </button>
       <button className="less-field" onClick={handleClickLess}>
-        Less {fieldName}
+        -
       </button>
+      </div>
       {render &&
         Array.from({ length: repeat }, (_, index) =>
           render(value, setFunction)(index)
